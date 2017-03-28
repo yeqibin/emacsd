@@ -267,15 +267,15 @@ If HARDCODED-ARRAY-INDEX provided, array index in JSON path is replaced with it.
 (setq auto-mode-alist (cons '("\\.jason$" . js-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.jshintrc$" . js-mode) auto-mode-alist))
 
-(cond
- ((not *no-memory*)
-  (setq auto-mode-alist (cons '("\\.js\\(\\.erb\\)?\\'" . js2-mode) auto-mode-alist))
-  (setq auto-mode-alist (cons '("\\.ts\\'" . js2-mode) auto-mode-alist))
-  (add-to-list 'interpreter-mode-alist (cons "node" 'js2-mode)))
- (t
-  (setq auto-mode-alist (cons '("\\.js\\(\\.erb\\)?\\'" . js-mode) auto-mode-alist))
-  (setq auto-mode-alist (cons '("\\.ts\\'" . js-mode) auto-mode-alist))
-  ))
+;; (cond
+;;  ((not *no-memory*)
+;;   (setq auto-mode-alist (cons '("\\.js\\(\\.erb\\)?\\'" . js2-mode) auto-mode-alist))
+;;   (setq auto-mode-alist (cons '("\\.ts\\'" . js2-mode) auto-mode-alist))
+;;   (add-to-list 'interpreter-mode-alist (cons "node" 'js2-mode)))
+;;  (t
+;;   (setq auto-mode-alist (cons '("\\.js\\(\\.erb\\)?\\'" . js-mode) auto-mode-alist))
+;;   (setq auto-mode-alist (cons '("\\.ts\\'" . js-mode) auto-mode-alist))
+;;   ))
 ;; }}
 
 (add-hook 'coffee-mode-hook 'flymake-coffee-load)

@@ -32,8 +32,11 @@
 ;; pointback-mode make it harder to insert latex macro
 ;; @see https://github.com/redguardtoo/emacs.d/issues/307#issuecomment-212582241
 (add-hook 'LaTeX-mode-hook
-  (lambda ()
-    (pointback-mode -1)))
+          (lambda ()
+            (pointback-mode -1)))
+(add-hook 'TeX-mode-hook
+          (lambda ()
+            (pointback-mode -1)))
 
 ;;----------------------------------------------------------------------------
 ;; Page break lines
@@ -472,7 +475,7 @@ Current position is preserved."
 ;; but somebody mentioned that blink cursor is needed in dark theme
 ;; so it should not be turned off by default
 ;; (blink-cursor-mode -1)
-
+;(set-cursor-color "pale green")
 
 (defun create-scratch-buffer nil
   "create a new scratch buffer to work in. (could be *scratch* - *scratchX*)"
@@ -515,6 +518,8 @@ Including indent-buffer, which should not be called automatically on save."
    (savehist-mode 1))
  (message "Failed to access ~/.emacs.d/history"))
 ;; }}
+
+
 
 (provide 'init-misc-lazy)
 ;;; init-misc-lazy.el ends here

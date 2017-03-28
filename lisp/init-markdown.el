@@ -2,6 +2,13 @@
 (setq auto-mode-alist
       (cons '("\\.\\(md\\|markdown\\)\\'" . markdown-mode) auto-mode-alist))
 
+(custom-set-variables
+ '(markdown-command "pandoc -f markdown -t html -s --mathjax=/home/yqb/Downloads/Software/MathJax/MathJax.js?config=TeX-MML-AM_CHTML --highlight-style pygments"))
+
+;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML
+;(setq markdown-command "markdown | smartypants")
+(setq markdown-enable-math t)
+
 (defun markdown-imenu-create-index ()
   (let* ((root '(nil . nil))
          cur-alist

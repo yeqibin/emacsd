@@ -1,132 +1,19 @@
 (require 'package)
-
-;; You can set it to `t' to use safer HTTPS to download packages
-(defvar melpa-use-https-repo nil
-  "By default, HTTP is used to download packages.
-But you may use safer HTTPS instead.")
-
-;; List of VISIBLE packages from melpa-unstable (http://melpa.org)
-;; Feel free to add more packages!
-(defvar melpa-include-packages
-  '(bbdb
-    color-theme
-    wgrep
-    robe
-    groovy-mode
-    inf-ruby
-    simple-httpd
-    dsvn
-    move-text
-    string-edit ; looks magnars don't update stable tag frequently
-    findr
-    mwe-log-commands
-    yaml-mode
-    noflet
-    db
-    creole
-    web
-    sass-mode
-    idomenu
-    pointback
-    buffer-move
-    regex-tool
-    quack
-    legalese
-    htmlize
-    scratch
-    session
-    crontab-mode
-    bookmark+
-    flymake-lua
-    multi-term
-    dired+
-    inflections
-    dropdown-list
-    lua-mode
-    tidy
-    pomodoro
-    auto-compile
-    packed
-    gitconfig-mode
-    textile-mode
-    w3m
-    erlang
-    company-c-headers
-    ;; make all the color theme packages available
-    afternoon-theme
-    define-word
-    ahungry-theme
-    alect-themes
-    ample-theme
-    ample-zen-theme
-    anti-zenburn-theme
-    atom-dark-theme
-    badger-theme
-    base16-theme
-    basic-theme
-    birds-of-paradise-plus-theme
-    workgroups2
-    bliss-theme
-    boron-theme
-    bubbleberry-theme
-    busybee-theme
-    calmer-forest-theme
-    cherry-blossom-theme
-    clues-theme
-    colonoscopy-theme
-    color-theme-approximate
-    color-theme-buffer-local
-    color-theme-sanityinc-solarized
-    color-theme-sanityinc-tomorrow
-    color-theme-solarized
-    colorsarenice-theme
-    cyberpunk-theme
-    dakrone-theme
-    darcula-theme
-    dark-krystal-theme
-    darkburn-theme
-    darkmine-theme
-    display-theme
-    distinguished-theme
-    django-theme
-    espresso-theme
-    firebelly-theme
-    firecode-theme
-    flatland-black-theme
-    pythonic
-    flatland-theme
-    flatui-theme
-    gandalf-theme
-    gotham-theme
-    grandshell-theme
-    gruber-darker-theme
-    gruvbox-theme
-    hc-zenburn-theme
-    hemisu-theme
-    heroku-theme)
-  "Don't install any Melpa packages except these packages")
-
-;; We include the org repository for completeness, but don't use it.
-;; Lock org-mode temporarily:
-;; (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
-(if melpa-use-https-repo
-    (setq package-archives
-          '(;; uncomment below line if you need use GNU ELPA
-            ;; ("gnu" . "http://elpa.gnu.org/packages/")
-            ("melpa" . "http://melpa.org/packages/")
-            ("melpa-stable" . "http://stable.melpa.org/packages/")))
-  (setq package-archives
-        '(;; uncomment below line if you need use GNU ELPA
-          ;; ("gnu" . "https://elpa.gnu.org/packages/")
-          ("melpa" . "https://melpa.org/packages/")
-          ("melpa-stable" . "https://stable.melpa.org/packages/"))))
+;(setq package-archives '(("myelpa" . "https://raw.github.com/redguardtoo/myelpa/master/")))
+;(package-initialize)
+(setq package-archives
+        `(                         ;("yeh-elpa" . ,yeh-elpa-directory)
+          ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+          ("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+          ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+          ))
 
 
 ;; Un-comment below line if your extract https://github.com/redguardtoo/myelpa/archive/master.zip into ~/myelpa/
 ;; (setq package-archives '(("myelpa" . "~/myelpa")))
 
 ;; Or Un-comment below line if you install package from https://github.com/redguardtoo/myelpa/
-;; (setq package-archives '(("myelpa" . "https://raw.github.com/redguardtoo/myelpa/master/")))
+
 
 
 
@@ -147,7 +34,6 @@ But you may use safer HTTPS instead.")
 ;; Add support to package.el for pre-filtering available packages
 (defvar package-filter-function nil
   "Optional predicate function used to internally filter packages used by package.el.
-
 The function is called with the arguments PACKAGE VERSION ARCHIVE, where
 PACKAGE is a symbol, VERSION is a vector as produced by `version-to-list', and
 ARCHIVE is the string name of the package archive.")
@@ -186,7 +72,7 @@ ARCHIVE is the string name of the package archive.")
          )))
 
 ;; un-comment below code if you prefer use all the package on melpa (unstable) without limitation
-;; (setq package-filter-function nil)
+(setq package-filter-function nil)
 
 ;;------------------------------------------------------------------------------
 ;; Fire up package.el and ensure the following packages are installed.
@@ -205,6 +91,8 @@ ARCHIVE is the string name of the package archive.")
 (require-package 'gitignore-mode)
 (require-package 'gitconfig-mode)
 (require-package 'yagist)
+(require-package 'chinese-pyim); chinese-pyim
+;(require-package 'ox-reveal)
 (require-package 'wgrep)
 (require-package 'request) ; http post/get tool
 (require-package 'lua-mode)
@@ -250,7 +138,7 @@ ARCHIVE is the string name of the package archive.")
 (require-package 'move-text)
 (require-package 'mwe-log-commands)
 (require-package 'page-break-lines)
-(require-package 'pointback)
+;(require-package 'pointback)
 (require-package 'regex-tool)
 (require-package 'rinari)
 (require-package 'groovy-mode)

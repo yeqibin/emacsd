@@ -22,5 +22,14 @@
             (with-selected-frame frame
               (unless window-system
                 (set-frame-parameter nil 'menu-bar-lines 0)))))
+(defun toggle-transparency()
+  "Toggle frame transparency"
+  (interactive)
+  (setq trans (cdr (frame-parameter (selected-frame) 'alpha)))
+  (setq check (list 100))
+  (if (equalp trans check)
+      (set-frame-parameter (selected-frame) 'alpha '(85 50))
+    (set-frame-parameter (selected-frame) 'alpha '(100 100))))
+(global-set-key (kbd "C-c t") 'toggle-transparency)
 
 (provide 'init-gui-frames)

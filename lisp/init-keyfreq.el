@@ -129,7 +129,7 @@
         next-line
         org-beginning-of-line
         org-ctrl-c-ctrl-c
-        org-cycle
+;        org-cycle
         org-end-of-line
         org-force-self-insert
         org-return

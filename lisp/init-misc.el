@@ -41,7 +41,8 @@
 (setq org2nikola-use-verbose-metadata t) ; for nikola 7.7+
 ;; }}
 
-(define-key global-map (kbd "RET") 'newline-and-indent)
+;(define-key global-map (kbd "RET") 'newline-and-indent)
+
 
 ;; M-x without meta
 (global-set-key (kbd "C-x C-m") 'execute-extended-command)
@@ -287,12 +288,12 @@
 
 ;; some project prefer tab, so be it
 ;; @see http://stackoverflow.com/questions/69934/set-4-space-indent-in-emacs-in-text-mode
-(setq-default tab-width 4)
+;(setq-default tab-width 4)
 
 (setq history-delete-duplicates t)
 
 ;;----------------------------------------------------------------------------
-(fset 'yes-or-no-p 'y-or-n-p)
+;(fset 'yes-or-no-p 'y-or-n-p)
 
 ;; NO automatic new line when scrolling down at buffer bottom
 (setq next-line-add-newlines nil)

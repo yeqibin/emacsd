@@ -3,6 +3,7 @@
 (setq desktop-path '("~/.emacs.d"))
 (setq desktop-save 'if-exists)
 (desktop-save-mode 1)
+(setq-default desktop-load-locked-desktop t) ;
 
 
 ;;----------------------------------------------------------------------------

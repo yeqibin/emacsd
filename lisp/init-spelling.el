@@ -89,9 +89,9 @@ Please note RUN-TOGETHER will make aspell less capable. So it should only be use
   ;; just reset dictionary to the safe one "en_US" for hunspell.
   ;; if we need use different dictionary, we specify it in command line arguments
   (setq ispell-local-dictionary "en_US")
+;   (setq ispell-local-dictionary "american")
   (setq ispell-local-dictionary-alist
-        '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil nil nil utf-8))))
- (t (setq ispell-program-name nil)
+        '(("english" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil ("-d" "en_US,en_GB") nil utf-8)))) (t (setq ispell-program-name nil)
     (message "You need install either aspell or hunspell for ispell")))
 
 ;; ispell-cmd-args is useless, it's the list of *extra* command line arguments we will append to the ispell process when ispell-send-string()
@@ -145,7 +145,7 @@ Please note RUN-TOGETHER will make aspell less capable. So it should only be use
 
 ;; you can also use "M-x ispell-word" or hotkey "M-$". It pop up a multiple choice
 ;; @see http://frequal.com/Perspectives/EmacsTip03-FlyspellAutoCorrectWord.html
-(global-set-key (kbd "C-c s") 'flyspell-auto-correct-word)
+(global-set-key (kbd "C-c w") 'flyspell-auto-correct-word)
 
 ;; {{ avoid spell-checking doublon (double word) in certain major modes
 (defvar flyspell-check-doublon t
